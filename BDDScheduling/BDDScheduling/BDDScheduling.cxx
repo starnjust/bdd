@@ -20,7 +20,7 @@ bool writeFile; //output the backtracking info to the outfile result.txt
 /*The h function to be used is decided by the parameters in Search() in Main(), e.g., Search("Astar",0, 0) and optimal_f=Search("Astar",3, h3_0);.*/
 
 
-
+/*
 char source_net[50]="new4x3_1111";  // the source net
 #define NP 31  //number of places!
 #define NT 24  //number of transitions!
@@ -30,7 +30,7 @@ const bool isIncidenceMatrix = false;  //if not transposed, then true; if transp
 int h3pj[]={6,11,16,23};//for h3=e_Maxi, j is started from 1. pj is the set of places which use the same uni-resource and whose total time is the biggest.
 int h3_0=16; //for h3=e_Maxi  16=4+5+5+2
 int P_R[]={29,30,31}; //resource places, start from 1.
-
+*/
 
 
 /*
@@ -178,7 +178,7 @@ int h3_0=128; //for h3=e_Maxi, 32=16*8
 
 
 
-/*
+
 char source_net[50]="Chen2011Big11112";  // the source net
 bool isIncidenceMatrix = false;  //if not transposed, then true; if transposed, then false.
 #define NP 53  //number of places!
@@ -188,7 +188,7 @@ bool isIncidenceMatrix = false;  //if not transposed, then true; if transposed, 
 int h3pj[]={2, 17, 34, 36};//for h3=e_Maxi, j is started from 1.!!!!!!!!!!!!!
 int h3_0=32; //for h3=e_Maxi!!!!!!!!!!!
 int P_R[]={37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48}; //resource places, start from 1.
-*/
+
 
 
 //*********************************************************************************************************************
@@ -1603,13 +1603,13 @@ int main()
 	        
 		//************************************************************************
 		//Parameters of Search():
-		//Parameter 1#(string, search method): BFS(breadth first, NOT best first), Astar; 
-		//Parameter 2#(int, hmethod, FOR Astar; 0 when BFS): 0: h=0; 1: h=t_depth-1(only for post-t of operational places); 3: h=e_{Maxi};
-		//Parameter 3#(int, h0, FOR Astar; 0 when BFS): if hmethod=0, then h0=0; if hmethod =1, then h0=12 or else t_depth; if hmethod =2, then h0=0?; if hmethod=3, then h0=h3_0, it also needs the given vector h3pj.
+		//Parameter 1#(string, search method): "BFS"(breadth first search, NOT best first), "Astar"; 
+		//Parameter 2#(int, hmethod): if 1#="BFS", then 0; if 1#="Astar", then: 0: h=0; 1: h=t_depth-1(only for post-t of operational places); 3: h=e_{Maxi};
+		//Parameter 3#(int, h0): if 1#="BFS", then 0; if 1#="Astar": if hmethod=0, then h0=0; if hmethod =1, then h0=12 or else t_depth; if hmethod =2, then h0=0; if hmethod=3, then h0=h3_0, it also needs a predifined vector h3pj.
 		//************************************************************************
-		//Search("BFS",0, 0);
-		//Search("Astar",0, 0); //Use it and disable the rest if use h=0 in Astar.
-		optimal_f=Search("Astar",3, h3_0);  //Use it and disable the rest if use h=h_BDD in Astar. Note that only Astar return the right optimal f value.	        
+		//Search("BFS",0, 0);//Use it and disable the rest if use BFS.
+		Search("Astar",0, 0); //Use it and disable the rest if use h=0 in Astar.
+		//optimal_f=Search("Astar",3, h3_0);  //Use it and disable the rest if use h=h_BDD in Astar. Note that only Astar return the optimal f value.	        
 	        
 	        gettimeofday(&finish,NULL);  
 	     	totalTime = finish.tv_sec - start.tv_sec + (finish.tv_usec - start.tv_usec) / 1000000.0;  
