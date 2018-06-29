@@ -5,4 +5,4 @@ Before running it, create a file of incidence matrix (netname_matrix.txt) and a 
 
 Use: Buddy-2.2 software
 
-The details of the method can be found in the paper: Bo Huang, et. al., Symbolically Scheduling of FMS on Timed Petri Nets, IEEE Transactions on Cybernetics, Submitted.
+The details of the method can be found in the paper: Bo Huang, et. al., Symbolic Scheduling of FMS with Timed Petri Nets.
